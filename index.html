@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opening App...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const ios = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    const android = /android/i.test(userAgent);
+
+    window.onload = function () {
+      const appScheme = "https://apps.apple.com/app/id1537955071"; // custom URL scheme yourapp://
+      const iosStore = "https://apps.apple.com/app/id1537955071"; // replace with your real App Store link
+      const androidStore = "https://apps.apple.com/app/id1537955071"; // replace with your Play Store link
+
+      const now = Date.now();
+      setTimeout(function () {
+        if (Date.now() - now < 2000) {
+          window.location.href = ios ? iosStore : androidStore;
+        }
+      }, 1500);
+
+      window.location = appScheme;
+    };
+  </script>
+</head>
+<body>
+  <p>Opening app…</p>
+</body>
+</html>
